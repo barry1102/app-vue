@@ -2,6 +2,8 @@
   "name": "app-vue",
   "version": "0.1.0",
   "private": true,
+  "description": "纯净的Vue+element搭建的后台管理模板",
+  "author": "barry",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -13,7 +15,7 @@
     "element-ui": "^2.15.5",
     "vue": "^2.6.11",
     "vue-router": "^3.5.2",
-    "vuex": "^4.0.2"
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -30,6 +32,7 @@
     "node-sass": "^6.0.1",
     "sass-loader": "^10.2.0",
     "vue-cli-plugin-axios": "^0.0.4",
+    "vue-cli-plugin-cookie": "^0.1.0",
     "vue-cli-plugin-element": "^1.0.1",
     "vue-template-compiler": "^2.6.11"
   },
