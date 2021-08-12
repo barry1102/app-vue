@@ -1,6 +1,6 @@
 const cookie = require('tiny-cookie')
 
-const vueCookie = {
+export const vueCookie = {
   // Main functions
   get: (name) => cookie.get(name),
   set: (name, value, options) => cookie.set(name, value, options),

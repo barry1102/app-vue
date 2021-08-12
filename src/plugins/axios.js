@@ -2,23 +2,32 @@
 
 import Vue from 'vue';
 import axios from "axios";
+import {
+  getToken,
+  getTenant
+} from '@/utils/auth'
+
 
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+console.log(process.env.VUE_APP_DEV_SERVER)
 
 let config = {
-  // baseURL: process.env.baseURL || process.env.apiUrl || ""
-  // timeout: 60 * 1000, // Timeout
-  // withCredentials: true, // Check cross-site Access-Control
+  baseURL: process.env.VUE_APP_BASE_API || "",
+  timeout: 60 * 1000, // Timeout
+  withCredentials: true, // Check cross-site Access-Control
 };
 
-const _axios = axios.create(config);
+export const _axios = axios.create(config);
 
 _axios.interceptors.request.use(
   function(config) {
     // Do something before request is sent
+    config.headers.channel='PC'
+    config.headers.Authorization='Bearer '+getToken()||''; //是否设置请求头
+    config.headers.tenantNumber = getTenant()||''; //是否设置请求头
     return config;
   },
   function(error) {
